@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : AADITHYAN .R</H3>
+<H3>ENTER YOUR REGISTER NO : 212222230001</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>DATE : 22.8.24</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,70 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
 
+df=pd.read_csv('/content/Churn_Modelling.csv')
+print(df.head())
 
+X=df.iloc[:,:-1].values
+print(X)
+
+y=df.iloc[:,-1].values
+print(y)
+
+print(df.isnull().sum())
+
+df.duplicated()
+
+df.describe()
+
+df = df.drop(['Surname', 'Geography','Gender'], axis=1)
+df.head()
+
+scaler=MinMaxScaler()
+df1=pd.DataFrame(scaler.fit_transform(df))
+print(df1)
+
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+print(X_train)
+print(len(X_train))
+
+print(X_test)
+print(len(X_test))
+```
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+### DATASET:
+![1](https://github.com/user-attachments/assets/63cfc27c-6c61-48ca-a78f-823629c3d564)
+
+### X VALUES:
+![2](https://github.com/user-attachments/assets/cb69b34e-382c-4865-ae99-cc56070ba46e)
+
+### Y VALUES:
+![3](https://github.com/user-attachments/assets/91285301-aed9-4455-a899-994d73ad0950)
+
+### NULL VALUES:
+![4](https://github.com/user-attachments/assets/741f94bf-c1c1-477f-91cb-5388f04878a8)
+
+### DUPLICATED VALUES:
+![5](https://github.com/user-attachments/assets/4b4c2a61-217d-410b-90d0-84f08ad5282f)
+
+### DESCRIPTION:
+![6](https://github.com/user-attachments/assets/15cabb08-6f19-4002-a8ee-0932040b6afd)
+
+### NORMALIZED DATASET:
+![7](https://github.com/user-attachments/assets/9020fe99-6e44-4871-ab06-4fb9279b43af)
+
+### TRAINING DATASET:
+![8](https://github.com/user-attachments/assets/46600a57-4529-4c57-a68e-1461af2f0cff)
+
+### TESTING DATASET:
+![9](https://github.com/user-attachments/assets/7353c8e4-d2af-4bd5-aa78-4d9ba81fb5e3)
 
 
 ## RESULT:
